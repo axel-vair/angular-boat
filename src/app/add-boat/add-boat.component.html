@@ -1,0 +1,32 @@
+<div class="title">
+  <h1>Formulaire d'ajout d'un bateau</h1>
+</div>
+
+<div class="container">
+  <form >
+    <mat-form-field>
+      <mat-label for="name">Nom du navire</mat-label>
+      <input [(ngModel)]="boat.name" matInput placeholder="Ex. Jean Bar" type="text" id="name" name="name" ngModel required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Classe</mat-label>
+      <select [(ngModel)]="boat.classe" matNativeControl required>
+        <option [ngValue]="null" disabled>Selectionnez une classe</option>
+        <option *ngFor="let boat of boats" [ngValue]=boat.classe?.name>{{boat.classe?.name}}</option>
+      </select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="tonnage">Tonnage</mat-label>
+      <input [(ngModel)]="boat.tonnage" matInput placeholder="Ex. 100" type="number" id="tonnage" name="tonnage" ngModel>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="length">Longueur</mat-label>
+      <input [(ngModel)]="boat.length" matInput placeholder="Ex. 234" type="number" id="length" name="length" ngModel>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="saveBoat()" type="button">Enregistrer</button>
+  </form>
+</div>

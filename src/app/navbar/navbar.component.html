@@ -1,0 +1,37 @@
+<mat-toolbar color="primary" class="mat-elevation-z5">
+  <a href="/boats"><span>Boat Lover</span></a>
+  <div class="spacer"></div>
+  <button mat-button [matMenuTriggerFor]="beforeMenu">Navires</button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button mat-menu-item>
+      <a routerLinkActive="active" routerLink="boats">Liste complète</a>
+    </button>
+    <button mat-menu-item>
+      <a routerLinkActive="active" routerLink="add-boat">Ajouter un navire</a>
+    </button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="afterMenu">Classes</button>
+  <mat-menu #afterMenu="matMenu" xPosition="after">
+    <button mat-menu-item>
+      <a routerLinkActive="active" routerLink="classes">Liste complète</a>
+    </button>
+    <button mat-menu-item>
+      <a routerLinkActive="active" routerLink="add-classe">Ajouter une classe</a>
+    </button>
+  </mat-menu>
+
+
+
+
+  <a mat-button routerLinkActive="active" routerLink="auth">Se connecter</a>
+  <a mat-raised-button routerLinkActive="active" routerLink="auth">S'inscrire</a>
+
+
+
+</mat-toolbar>
+
+
+
+
+<router-outlet></router-outlet>

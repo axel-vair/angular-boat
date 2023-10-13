@@ -1,0 +1,22 @@
+<div class="title">
+  <h1>Connexion</h1>
+</div>
+
+
+<div class="container">
+  <form>
+    <mat-form-field>
+      <mat-label for="name">email</mat-label>
+      <input matInput placeholder="Ex. jean@gmail.com" type="email" id="name" name="name" ngModel required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="password">Mot de passe</mat-label>
+      <input matInput placeholder="******" type="password" id="password" name="password" ngModel required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" *ngIf="!authStatus" (click)="onSignIn()">Se connecter</button>
+    <button mat-raised-button color="warn" *ngIf="authStatus" (click)="onSignOut()">Se déconnecter</button>
+
+  </form>
+</div>

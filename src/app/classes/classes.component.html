@@ -1,0 +1,13 @@
+<div class="title">
+  <h1>Liste des classes</h1>
+</div>
+
+<div class="container-boats">
+    <mat-card class="card-boats" *ngFor="let wording of wordings">
+      <mat-card-content>
+        <a class="card-content" href="/classes/{{wording.id}}">{{wording.name}}</a>
+      </mat-card-content>
+    </mat-card>
+</div>
+
+

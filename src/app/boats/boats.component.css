@@ -1,0 +1,31 @@
+.title {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+.container-boats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card-boats {
+  width: 300px;
+  margin: 10px 10px;
+}
+
+h5 {
+  font-size: large;
+  font-family: "Euphemia UCAS"
+}
+a {
+  text-decoration: none;
+}
+
+.card-content {
+  font-family: Geneva;
+  font-size: medium;
+}
+
+button {
+  margin: 10px;
+}

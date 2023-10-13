@@ -1,0 +1,29 @@
+<div class="title">
+  <h1>Page d'information du navire {{singleBoat.name}}</h1>
+</div>
+
+<div class="container-boats">
+  <mat-card class="card-boats">
+    <mat-card-header>
+      <mat-card-title><h2>{{singleBoat.name}}</h2></mat-card-title>
+      <mat-card-subtitle>
+        <p class="card-content">Classe - <a href="/classes/{{singleBoat.classe.id}}">{{singleBoat.classe.name}}</a></p>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="card-content" *ngIf="singleBoat.tonnage">Tonnage: {{singleBoat.tonnage}}</p>
+      <p class="card-content" *ngIf="singleBoat.length">Longueur: {{singleBoat.length}}</p>
+      <p class="card-content" *ngIf="!singleBoat.tonnage">Pas de tonnage renseigné</p>
+      <p class="card-content" *ngIf="!singleBoat.length">Pas de longueur renseignée</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="container-boats">
+  <button mat-raised-button>
+    <a routerLink="/boats">Retour à la liste</a>
+  </button>
+</div>
+
+
+
