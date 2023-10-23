@@ -1,1 +1,47 @@
-<p>edit-boat works!</p>
+<div class="title">
+  <h1>Edition du bateau {{boatUpdate.name}}</h1>
+</div>
+
+<div class="container-boats">
+  <form (ngSubmit)="onSubmit(f)" [(ngModel)]="boatUpdate" #f="ngForm">
+    <mat-card class="card-boats">
+
+      <mat-form-field>
+        <mat-label for="name">Nom du navire</mat-label>
+        <input matInput placeholder="{{boatUpdate.name}}" type="text" id="name" [(ngModel)]="boatUpdate.name"
+               name="name" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="classe">Classe</mat-label>
+        <select matNativeControl [(ngModel)]="boatUpdate.classe" name="classe">
+          <option *ngFor="let boatClass of classes" [ngValue]="boatClass"
+                  [selected]="boatClass">{{boatClass.name}}</option>
+        </select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="tonnage">Tonnage</mat-label>
+        <input name="tonnage" matInput type="number" class="card-content" [(ngModel)]="boatUpdate.tonnage">
+        <span *ngIf="!boatUpdate.tonnage">Pas de tonnage renseigné</span>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="length">Longueur</mat-label>
+        <input name="length" matInput type="number" class="card-content" [(ngModel)]="boatUpdate.length">
+        <span *ngIf="!boatUpdate.length">Pas de longueur renseignée</span>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" (click)="boatUpdate">Enregistrer les modifications</button>
+    </mat-card>
+  </form>
+</div>
+
+<div class="container-boats">
+  <button mat-raised-button>
+    <a routerLink="/boats">Retour à la liste</a>
+  </button>
+</div>
+
+
+

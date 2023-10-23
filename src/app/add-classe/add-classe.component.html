@@ -1,0 +1,14 @@
+<div class="title">
+  <h1>Formulaire d'ajout d'une classe</h1>
+</div>
+
+<div class="container">
+  <form (ngSubmit)="onSubmit(f)" [(ngModel)]="classe" #f="ngForm">
+    <mat-form-field>
+      <mat-label for="name">Nom de la classe</mat-label>
+      <input matInput placeholder="Ex. Jean Bar" type="text" id="name" [(ngModel)]="classe.name" name="name" required>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Enregistrer</button>
+  </form>
+
+</div>

@@ -3,30 +3,31 @@
 </div>
 
 <div class="container">
-  <form >
+  <form (ngSubmit)="onSubmit(f)" [(ngModel)]="boat" #f="ngForm">
     <mat-form-field>
       <mat-label for="name">Nom du navire</mat-label>
-      <input [(ngModel)]="boat.name" matInput placeholder="Ex. Jean Bar" type="text" id="name" name="name" ngModel required>
+      <input matInput placeholder="Ex. Jean Bar" type="text" id="name" [(ngModel)]="boat.name" name="name" required>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Classe</mat-label>
-      <select [(ngModel)]="boat.classe" matNativeControl required>
+      <mat-label for="classe">Classe</mat-label>
+      <select matNativeControl [(ngModel)]="boat.classe" name="classe">
         <option [ngValue]="null" disabled>Selectionnez une classe</option>
-        <option *ngFor="let boat of boats" [ngValue]=boat.classe?.name>{{boat.classe?.name}}</option>
+        <option *ngFor="let boatClass of classes" [ngValue]="boatClass">{{ boatClass.name }}</option>
       </select>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label for="tonnage">Tonnage</mat-label>
-      <input [(ngModel)]="boat.tonnage" matInput placeholder="Ex. 100" type="number" id="tonnage" name="tonnage" ngModel>
+      <input matInput placeholder="Ex. 100" type="number" id="tonnage" [(ngModel)]="boat.tonnage" name="tonnage">
     </mat-form-field>
 
     <mat-form-field>
       <mat-label for="length">Longueur</mat-label>
-      <input [(ngModel)]="boat.length" matInput placeholder="Ex. 234" type="number" id="length" name="length" ngModel>
+      <input matInput placeholder="Ex. 234" type="number" id="length" [(ngModel)]="boat.length" name="length">
     </mat-form-field>
 
-    <button mat-raised-button color="primary" (click)="saveBoat()" type="button">Enregistrer</button>
+    <button mat-raised-button color="primary" type="submit">Enregistrer</button>
   </form>
+
 </div>
