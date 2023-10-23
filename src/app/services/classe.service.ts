@@ -15,6 +15,9 @@ export class ClasseService {
     return this.http.post(this.url, classeData)
   }
 
+  updateClasse(classe: Classe): Observable<Classe>{
+    return this.http.put<Classe>(`${this.url}/${classe.id}`, classe)
+  }
   getClasses(): Observable<any> {
     return this.http.get<any>(this.url);
   }

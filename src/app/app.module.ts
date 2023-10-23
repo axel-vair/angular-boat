@@ -24,6 +24,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {EditBoatComponent} from './edit-boat/edit-boat.component';
 import {AddClasseComponent} from './add-classe/add-classe.component';
+import { EditClasseComponent } from './edit-classe/edit-classe.component';
 
 const appRoutes: Routes = [
   {path: 'boats', component: BoatsViewComponent},
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
   {path: 'edit/boat/:id', component: EditBoatComponent},
   {path: 'classes', component: ClassesViewComponent},
   {path: 'classes/:id', component: SingleClasseComponent},
+  {path: 'edit/classe/:id', component: EditClasseComponent},
   {path: 'add-boat', component: AddBoatComponent},
   {path: 'add-class', component: AddClasseComponent},
   {path: 'auth', component: AuthComponent},
@@ -52,6 +54,7 @@ const appRoutes: Routes = [
     SingleClasseComponent,
     EditBoatComponent,
     AddClasseComponent,
+    EditClasseComponent,
   ],
   imports: [
     BrowserModule,

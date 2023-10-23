@@ -1,0 +1,24 @@
+<div class="title">
+  <h1>Edition du bateau {{classeUpdate.name}}</h1>
+</div>
+
+<div class="container-boats">
+  <form (ngSubmit)="onSubmit(f)" [(ngModel)]="classeUpdate" #f="ngForm">
+    <mat-card class="card-boats">
+      <mat-form-field>
+        <mat-label for="classe">Nom de la classe</mat-label>
+        <input matInput placeholder="{{classeUpdate.name}}" type="texte" name="name" [(ngModel)]="classeUpdate.name"
+               required>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" (click)="classeUpdate">Enregistrer la modification
+      </button>
+    </mat-card>
+  </form>
+</div>
+
+<div class="container-boats">
+  <button mat-raised-button>
+    <a routerLink="/classes">Retour à la liste</a>
+  </button>
+</div>
