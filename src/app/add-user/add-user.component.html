@@ -1,0 +1,29 @@
+<div class="title">
+  <h1>Formulaire d'inscription</h1>
+</div>
+
+<div class="container">
+  <form (ngSubmit)="onSubmit(f)" [(ngModel)]="user" #f="ngForm">
+    <mat-form-field>
+      <mat-label for="lastName">Nom</mat-label>
+      <input matInput placeholder="Nom" type="text" [(ngModel)]="user.lastName" name="lastName">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="firstName">Prénom</mat-label>
+      <input matInput placeholder="Prénom" type="text" [(ngModel)]="user.firstName" name="firstName" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="email">Email</mat-label>
+      <input matInput placeholder="mail@mail.fr" type="email" [(ngModel)]="user.email" name="email" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="password">Password</mat-label>
+      <input matInput placeholder="******" type="password" [(ngModel)]="user.password" name="password" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">S'inscrire</button>
+  </form>
+</div>

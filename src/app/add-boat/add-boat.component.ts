@@ -30,7 +30,6 @@ export class AddBoatComponent implements OnInit{
     if (form.valid){
       const data = form.value
       this.boatService.createBoat(data).subscribe((response) => {
-        console.log('Bateau créé avec succès:', response);
         form.resetForm();
       })
     }
