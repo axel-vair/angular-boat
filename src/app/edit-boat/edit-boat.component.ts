@@ -1,11 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {Boat} from "../model/boat";
+import {Component, Inject, OnInit} from '@angular/core';
 import {Classe} from "../model/classe";
 import {BoatService} from "../services/boat.service";
 import {ClasseService} from "../services/classe.service";
-import {ActivatedRoute} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-edit-boat',
@@ -16,15 +17,20 @@ export class EditBoatComponent implements OnInit {
   boatUpdate: any;
   classes: Classe[] = [];
 
+
   constructor(private boatService: BoatService,
               private classeService: ClasseService,
-              private route: ActivatedRoute,
-              private http: HttpClient) {
+              @Inject(MAT_DIALOG_DATA) public data: any,
+              private router: Router,
+              public dialogRef: MatDialogRef<EditBoatComponent>
+
+  ) {
+
+
   }
 
-
   ngOnInit() {
-    const id = this.route.snapshot.params['id'];
+    const id = this.data.id
     this.boatService.getBoat(id).subscribe((boat) => {
       this.boatUpdate = boat;
     })
@@ -33,8 +39,13 @@ export class EditBoatComponent implements OnInit {
     })
   }
 
-  onSubmit(form: NgForm){
-    if(form.valid){
+  returnToList() {
+    this.dialogRef.close();
+    this.router.navigate(['/boats']);
+  }
+
+  onSubmit(form: NgForm) {
+    if (form.valid) {
       const data = form.value
       data.id = this.boatUpdate.id
       this.boatService.updateBoat(data).subscribe((boatUpdated) => {
@@ -42,6 +53,4 @@ export class EditBoatComponent implements OnInit {
       })
     }
   }
-
-
 }

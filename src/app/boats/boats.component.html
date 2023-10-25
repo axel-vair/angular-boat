@@ -19,13 +19,22 @@
 
     <mat-card-content>
       <p class="card-content" *ngIf="boat.tonnage">Tonnage : {{ boat.tonnage }}</p>
-      <p class="card-content" *ngIf="boat.length">Taille {{ boat.length }}</p>
+      <p class="card-content" *ngIf="!boat.tonnage">Tonnage : aucune information</p>
+
+      <p class="card-content" *ngIf="boat.length">Taille : {{ boat.length }}</p>
+      <p class="card-content" *ngIf="!boat.length">Taille : aucune information</p>
+
     </mat-card-content>
     <mat-card-actions>
-      <button mat-stroked-button color="accent">
-        <a href="edit/boat/{{boat.id}}">Modifier</a>
-      </button>
+      <button mat-stroked-button color="accent" (click)="boat.id !== undefined ? openModalEdit(boat.id) : null">Modifier</button>
       <button mat-stroked-button color="warn" (click)="deleteBoat(boat.id)">Supprimer</button>
     </mat-card-actions>
   </mat-card>
 </div>
+
+<div class="container-boats">
+  <button mat-raised-button (click)="openModal()">Ajouter un bateau</button>
+</div>
+
+
+

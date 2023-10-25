@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {MatDialogModule} from "@angular/material/dialog";
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -24,21 +25,21 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {EditBoatComponent} from './edit-boat/edit-boat.component';
 import {AddClasseComponent} from './add-classe/add-classe.component';
-import { EditClasseComponent } from './edit-classe/edit-classe.component';
-import { AddUserComponent } from './add-user/add-user.component';
+import {EditClasseComponent} from './edit-classe/edit-classe.component';
+import {AddUserComponent} from './add-user/add-user.component';
+import { ModalComponent } from './modal/modal.component';
 
 const appRoutes: Routes = [
   {path: 'boats', component: BoatsViewComponent},
   {path: 'add-boat', component: AddBoatComponent},
   {path: 'boats/:id', component: SingleBoatComponent},
-  {path: 'edit/boat/:id', component: EditBoatComponent},
 
   {path: 'classes', component: ClassesViewComponent},
   {path: 'add-class', component: AddClasseComponent},
   {path: 'classes/:id', component: SingleClasseComponent},
   {path: 'edit/classe/:id', component: EditClasseComponent},
 
-  {path: 'add-user', component: AddUserComponent},
+  {path: 'register', component: AddUserComponent},
 
   {path: 'auth', component: AuthComponent},
   {path: '', component: BoatsViewComponent},
@@ -61,6 +62,7 @@ const appRoutes: Routes = [
     AddClasseComponent,
     EditClasseComponent,
     AddUserComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     MatCardModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [
     BoatService,

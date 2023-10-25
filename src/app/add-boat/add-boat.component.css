@@ -1,15 +1,35 @@
 .title {
   display: flex;
   justify-content: center;
-  margin: 20px auto;
+  margin: 10px 10px;
 }
-
-.container {
+.container-return {
   display: flex;
   justify-content: center;
 }
 
-form {
+.container-boats {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+
+}
+
+
+.card-boats {
+  width: 400px;
+  margin: 20px 20px;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+h5 {
+  font-size: large;
+  font-family: "Euphemia UCAS"
+}
+.card-content {
+  font-family: Geneva;
+  font-size: medium;
 }
